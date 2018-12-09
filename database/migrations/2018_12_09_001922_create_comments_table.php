@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('post_id'); // ポストとコメントの紐付け
             $table->string('commenter');
-        $table->text('comment');
+            $table->text('comment');
             $table->timestamps();
         });
     }
