@@ -15,5 +15,20 @@
             <h4>{{$single_comment->commenter}}</h4>
             <p>{{$single_comment->comment}}</p><br>
         @endforeach
+
+        <h3>コメントを投稿</h3>
+        {{--投稿完了でメッセージ--}}
+        @if(Session::has('message'))
+            <div class="bg-info">
+                <p>{{ Session::get('message') }}</p>
+            </div>
+        @endif
+        {{--エラーメッセージ--}}
+        @foreach($errors->all() as $message)
+            <p class="bg-danger">{{$message}}</p>
+        @endforeach
+        <form action="comment/store" class="form" method="post">
+
+        </form>
     </div>
 @endsection

@@ -10,8 +10,29 @@
 
         <title>Laravel掲示板</title>
 
+        <style>
+
+            .footer{text-align:right;font-size:10pt; margin:20px;
+                    border-bottom:solid 1px #ccc; color:#ccc;}
+        </style>
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
+
     </head>
-<body>
-    @yield('content')
-</body>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="{{url('/bbc')}}" class="navbar-brand">
+                        Laravel掲示板
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="footer">
+            copyright 2018 MASASHI.
+        </div>
+    </body>
 </html>

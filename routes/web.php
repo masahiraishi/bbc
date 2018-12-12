@@ -13,3 +13,5 @@
 
 
 Route::resource('bbc','PostsController');
+Route::get('bbc/category/{category}','PostsController@showCategory');
+Route::get('bbc/add','PostsController@add');
