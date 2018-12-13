@@ -18,7 +18,8 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('bbc.single',['post'=>$post]);
+//        $post_paginate = $post->comments->simplePaginate(5);
+        return view('bbc.single',['post'=>$post,]);
     }
     public function create()
     {
@@ -27,20 +28,19 @@ class PostsController extends Controller
 
     public function storeBlog(Request $request)
     {
-
 //        $validator = Validator::make($request,Comment::$rules,Comment::$messages);
         $this->validate($request, Post::$rules);
 
         $post = new Post;
         $post->title = $request->title;
-        $post->content = $request->content;
+        $post->content = $request->contents;
         $post->cat_id = $request->cat_id;
         $post->comment_count = 0;
         $post->save();
 
         return back()->with('message', '投稿が完了しました。');
-
     }
+
     public function showCategory( $id)
     {
 //カテゴリ名の取得

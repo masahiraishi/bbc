@@ -9,12 +9,14 @@
         <p>{{$post->content}}</p>
 
         <hr>
-
-        <h3>コメント一覧</h3>
-        @foreach($post->comments as $single_comment)
-            <h4>{{$single_comment->commenter}}</h4>
-            <p>{{$single_comment->comment}}</p><br>
-        @endforeach
+        @if(count($post->comments)>0)
+            <h3>コメント一覧</h3>
+            @foreach($post->comments as $single_comment)
+                <h4>{{$single_comment->commenter}}</h4>
+                <p>{{$single_comment->comment}}</p><br>
+            @endforeach
+            {{--{{$post_paginate->links()}}--}}
+        @endif
 
         <h3>コメントを投稿</h3>
         {{--投稿完了でメッセージ--}}

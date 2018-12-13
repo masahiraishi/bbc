@@ -26,9 +26,9 @@
                  </div>
             </div>
             <div class="form-group">
-                <label for="content" class="control-label">本文</label>
+                <label for="contents" class="control-label">本文</label>
                 <div class="">
-                    <textarea name="content" class="form-control"></textarea>
+                    <textarea name="contents" class="form-control"></textarea>
                 </div>
             </div>
             <div class="form-group">
