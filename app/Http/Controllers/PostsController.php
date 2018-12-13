@@ -25,36 +25,21 @@ class PostsController extends Controller
         return view('bbc.create');
     }
 
-    public function store()
+    public function storeBlog(Request $request)
     {
-        $rules = [
-            'title' =>'required',
-            'content' =>'required',
-            'cat_id' =>'required',
-        ];
 
-        $messages = [
-            'title.required'=>'タイトルを正しく入力してください',
-            'content.required'=>'本文を正しく入力してください',
-            'cat_id.required'=>'カテゴリーを選択してください',
-        ];
+//        $validator = Validator::make($request,Comment::$rules,Comment::$messages);
+        $this->validate($request, Post::$rules);
 
-        $validator = Validator::make(Input::all(),$rules,$messages);
+        $post = new Post;
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->cat_id = $request->cat_id;
+        $post->comment_count = 0;
+        $post->save();
 
-        if($validator->posses()){
-            $post = new Post;
-            $post->title = Input::get('title');
-            $post->content = Input::get('content');
-            $post->cat_id =Input::get('cart_id');
-//            $request->all();
-            $post->save();
-            return Redirect::back()
-                ->with('message','投稿が完了しました。');
-        }else{
-            return Redirect::back()
-                ->withErrors($validator)
-                ->withInput();
-        }
+        return back()->with('message', '投稿が完了しました。');
+
     }
     public function showCategory( $id)
     {

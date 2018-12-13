@@ -6,6 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    public static $rules = [
+        'title' =>'required',
+        'content' =>'required',
+        'cat_id' =>'required',
+    ];
+    public static $messages = [
+            'title.required'=>'タイトルを正しく入力してください',
+            'content.required'=>'本文を正しく入力してください',
+            'cat_id.required'=>'カテゴリーを選択してください',
+    ];
+
+
     public function comments()
     {
 //        投稿は複数のコメントをもつ
@@ -18,4 +30,6 @@ class Post extends Model
         return $this->belongsTo('App\Category','cat_id');
 
     }
+
+
 }

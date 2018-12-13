@@ -27,8 +27,25 @@
         @foreach($errors->all() as $message)
             <p class="bg-danger">{{$message}}</p>
         @endforeach
-        <form action="comment/store" class="form" method="post">
 
+        <form action="/comment" class="form" method="post">
+            {{csrf_field()}}
+            <div class="form-group">
+                <label for="commenter" class="">名前</label>
+                <div class="">
+                    <input type="text" name="commenter" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comment" class="">コメント</label>
+                <div class="">
+                    <textarea name="comment" class="form-control"></textarea>
+                </div>
+                <input type="hidden" name="post_id" class="" value="{{$post->id}}">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">投稿する</button>
+            </div>
         </form>
     </div>
 @endsection
