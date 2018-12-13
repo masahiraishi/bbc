@@ -7,18 +7,18 @@
         {{--投稿完了時にフラッシュメッセージを表示--}}
         @include('common.error')
 
-        <form action="store" method="post" class="form">
+        <form action="create/store" method="post" class="form">
             {{csrf_field()}}
             <div class="form-group">
-                <label for="title" class="">タイトル</label>
-                 <div class="">
-                     <input type="text"  name="title" value="">
+                <label for="title" class="control-label">記事タイトル</label>
+                 <div class="form-group">
+                     <input type="text"  name="title" value="" class="form-control">
                  </div>
             </div>
             <div class="form-group">
-                <label for="cat_id" type="text" class="">カテゴリー</label>
+                <label for="cat_id" type="text" class="control-label">カテゴリー</label>
                  <div class="">
-                     <select name="cat_id" type="text" class="">
+                     <select name="cat_id" type="text" class="form-control">
                          <option></option>
                          <option value="1" name="1">電化製品</option>
                          <option value="2" name="2">食品</option>
@@ -26,9 +26,9 @@
                  </div>
             </div>
             <div class="form-group">
-                <label for="content" class="">本文</label>
+                <label for="content" class="control-label">本文</label>
                 <div class="">
-                    <textarea name="content"></textarea>
+                    <textarea name="content" class="form-control"></textarea>
                 </div>
             </div>
             <div class="form-group">

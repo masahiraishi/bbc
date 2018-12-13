@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-xs-8 col-xs-offset-2">
-        <a href="bbc/create" class="btn btn-primary">記事を新しく登録する</a>
+        <a href="bbc/create" class="btn btn-success pull-right">記事を新しく登録する</a>
         @foreach($posts as $post)
 
             <h2>タイトル:{{$post->title}}
